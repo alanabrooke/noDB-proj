@@ -1,31 +1,38 @@
-import React, { Component } from 'react';
-import Home from './components/Home/Home';
-import Write from './components/Write/Write';
-import axios from "axios";
+import React from 'react';
+import './App.css';
+import axios from 'axios';
+import DefaultConfessions from './components/DefaultConfessions';
+import DeleteConfession from './components/DeleteConfession';
+import NewConfession from './components/NewConfession';
 
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            currentView: 'Home'
-        };
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      confessions: []
     }
-
-        render() {
-            let { currentView } = this.state; 
-            return (
-                <div>
-                    <button onClick={() => this.setState({currentView: "Home"})}>
-                        Back to Shuffle
-                    </button>
-                    <button onClick={() => this.setState({currentView : 'Write'})}>
-                        Write your own!
-                    </button>
-                    {currentView === "Home" ? <Home /> : <Write />}
-                </div>
-            );
-        }
-    }
-
+    this.retrieveConfessions = this.retrieveConfessions.bind(this);
+  }
+  componentDidMount() {
+    axios
+        .get('/api/confessions')
+        .then(res => this.setState({ confessions: res.data }))
+        .catch(err => console.log(err));
+  }
+  retrieveConfessions(confessionsRes) {
+    this.setState({ confessions: confessionsRes })
+  }
+  render() {
+    return (
+      <div className="App">
+        {/* <NewConfession retrieveConfessions={this.retrieveConfessions}/>
+        <Confessions 
+          confessions={this.state.confessions} retrieveConfessions={this.retrieveConfessions}  */}
+        {/* /> */}
+      
+      </div>
+    );
+  }
+}
 
 export default App;
