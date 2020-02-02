@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 
-export default class DefaultConfessions extends React.Component {
+export default class Original extends Component {
     render() {
-        const confessionsArray = this.props.confessions.map((confession, index) => {
+        const confessionsArray = this.props.myConfessions.map((confession, index) => {
             return (
-                <DefaultConfessions
+                <Original
                     confession={confession} key={index}
                     retrieveConfessions={this.props.retrieveConfessions}
                 />

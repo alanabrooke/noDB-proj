@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const CC = require('./controllers/confessionsController');
+const CC = require('./controller');
 
 app.use(express.json()); 
 

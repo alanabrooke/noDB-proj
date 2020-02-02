@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import DefaultConfessions from './components/DefaultConfessions';
+import Original from './components/Original';
 import DeleteConfession from './components/DeleteConfession';
 import NewConfession from './components/NewConfession';
 
@@ -9,26 +9,25 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      confessions: []
+      myConfessions: []
     }
     this.retrieveConfessions = this.retrieveConfessions.bind(this);
   }
   componentDidMount() {
     axios
         .get('/api/confessions')
-        .then(res => this.setState({ confessions: res.data }))
+        .then(res => this.setState({ myConfessions: res.data }))
         .catch(err => console.log(err));
   }
-  retrieveConfessions(confessionsRes) {
-    this.setState({ confessions: confessionsRes })
+  retrieveConfessions(confessionsResponse) {
+    this.setState({ myConfessions: confessionsResponse })
   }
   render() {
     return (
-      <div className="App">
-        {/* <NewConfession retrieveConfessions={this.retrieveConfessions}/>
-        <Confessions 
-          confessions={this.state.confessions} retrieveConfessions={this.retrieveConfessions}  */}
-        {/* /> */}
+      <div>
+        <NewConfession retrieveConfessions={this.retrieveConfessions}/>
+        <DeleteConfession
+          myConfessions={this.state.myConfessions} retrieveConfessions={this.retrieveConfessions}  />
       
       </div>
     );

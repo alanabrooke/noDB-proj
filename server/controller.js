@@ -1,6 +1,6 @@
 let id = 2;
 
-const myLocations =  [
+const myConfessions =  [
     {
         id: 0,
         confession: 'fbfdnbfd'

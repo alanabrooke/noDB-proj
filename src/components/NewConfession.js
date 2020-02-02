@@ -10,9 +10,14 @@ export default class NewConfession extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
+    handleChange(e) {
+        this.setState({value: e.target.value});
+        console.log(e.target.value)
+    }
+
     handleClick() {
         axios
-            .post('/api/confessions', this.state)
+            .put('/api/confessions', this.state)
             .then(res => this.props.retrieveConfessions(res.data))
             .catch(err => console.log(err));
     }

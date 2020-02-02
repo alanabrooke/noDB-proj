@@ -19,7 +19,7 @@ export default class DeleteConfession extends Component {
     render() {
         return(
             <section  key={this.props.key}>
-                <button onClick={this.handleDelete}>DELETE</button>
+                <button onClick={this.handleDelete}>Delete</button>
             </section>
         )
     }
