@@ -13,7 +13,7 @@ export default class DeleteConfession extends Component {
     handleDelete() {
         axios
             .delete(`/api/confessions/${this.props.confession.id}`)
-            .then(res => this.props.retrieveConfessions(res.data))
+            .then(res => this.props.deleteConfession(res.data))
             .catch(err => console.log(err));
     }
     render() {

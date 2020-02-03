@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Component} from 'react';
 import './App.css';
 import axios from 'axios';
 import Original from './components/Original';
 import DeleteConfession from './components/DeleteConfession';
 import NewConfession from './components/NewConfession';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
-      myConfessions: []
+      myConfessions: [],
+      text: ''
     }
-    this.retrieveConfessions = this.retrieveConfessions.bind(this);
+    this.getConfessions = this.getConfessions.bind(this);
   }
   componentDidMount() {
     axios
@@ -25,9 +26,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NewConfession retrieveConfessions={this.retrieveConfessions}/>
+        <NewConfession getConfessions={this.getConfessions}/>
         <DeleteConfession
-          myConfessions={this.state.myConfessions} retrieveConfessions={this.retrieveConfessions}  />
+          myConfessions={this.state.myConfessions} deleteConfessions={this.retrieveConfessions}  />
       
       </div>
     );

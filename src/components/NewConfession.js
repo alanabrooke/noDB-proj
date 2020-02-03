@@ -14,11 +14,12 @@ export default class NewConfession extends Component {
         this.setState({value: e.target.value});
         console.log(e.target.value)
     }
+    
 
     handleClick() {
         axios
             .put('/api/confessions', this.state)
-            .then(res => this.props.retrieveConfessions(res.data))
+            .then(res => this.props.getConfessions(res.data))
             .catch(err => console.log(err));
     }
     render() {

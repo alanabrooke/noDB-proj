@@ -7,10 +7,10 @@ export default class Original extends Component {
             return (
                 <Original
                     confession={confession} key={index}
-                    retrieveConfessions={this.props.retrieveConfessions}
+                    getConfessions={this.props.getConfessions}
                 />
             )
-        }).reverse();
+        })
 
         return (
             <section>
