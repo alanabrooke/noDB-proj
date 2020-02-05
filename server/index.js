@@ -5,9 +5,9 @@ const CC = require('./controller');
 app.use(express.json()); 
 
 app.get('/api/confessions', CC.getConfessions);
-app/post('api/confessions'. CC.addConfessions);
-app/put('api/confessions/:id'. CC.editConfession);
-app/delete('api/confessions/:id'. CC.deleteConfession);
+app.post('api/confessions'. CC.addConfessions);
+app.put('api/confessions/:id'. CC.editConfession);
+app.delete('api/confessions/:id'. CC.deleteConfession);
 
 
 

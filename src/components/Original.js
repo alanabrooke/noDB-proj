@@ -6,7 +6,7 @@ export default class Original extends Component {
         const confessionsArray = this.props.myConfessions.map((confession, index) => {
             return (
                 <Original
-                    confession={confession} key={index}
+                    myConfessions={confession} key={index}
                     getConfessions={this.props.getConfessions}
                 />
             )

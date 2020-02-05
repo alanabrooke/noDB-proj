@@ -4,6 +4,7 @@ import axios from 'axios';
 import Original from './components/Original';
 import DeleteConfession from './components/DeleteConfession';
 import NewConfession from './components/NewConfession';
+import Header from './components/Header'
 
 class App extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class App extends Component {
       myConfessions: [],
       text: ''
     }
-    this.getConfessions = this.getConfessions.bind(this);
+   
   }
   componentDidMount() {
     axios
@@ -28,7 +29,7 @@ class App extends Component {
       <div>
         <NewConfession getConfessions={this.getConfessions}/>
         <DeleteConfession
-          myConfessions={this.state.myConfessions} deleteConfessions={this.retrieveConfessions}  />
+          myConfessions={this.state.myConfessions} deleteConfessions={this.getConfessions}  />
       
       </div>
     );

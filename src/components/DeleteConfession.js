@@ -4,8 +4,7 @@ import axios from 'axios';
 export default class DeleteConfession extends Component {
     constructor() {
         super();
-        this.state = {    
-        }
+       
 
         this.handleDelete = this.handleDelete.bind(this);
     }

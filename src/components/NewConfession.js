@@ -15,7 +15,6 @@ export default class NewConfession extends Component {
         console.log(e.target.value)
     }
     
-
     handleClick() {
         axios
             .put('/api/confessions', this.state)
@@ -25,8 +24,8 @@ export default class NewConfession extends Component {
     render() {
         return (
             <section>
-                <p>Confession Time!</p>
-                <input placeholder='Share your secrets here :)' onChange={this.handleChange} />
+                <p>Confession Closet </p>
+                <input placeholder='Share your secrets here' onChange={this.handleChange} />
                 <button onClick={this.handleClick}>Submit</button>
             </section>
         )
